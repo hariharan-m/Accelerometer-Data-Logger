@@ -39,7 +39,7 @@ public class ReadValues extends AsyncTask<Void,Void,Void> {
 
         for (int i = 0; i < time * frequency; ) {
             iTime = System.currentTimeMillis();
-            if ((iTime - fTime) > (long) 1000 / frequency) {
+            if ((iTime - fTime) >= (long) 1000 / frequency) {
                 list.add(mainActivity.acceleration);
                 i++;
                 fTime = System.currentTimeMillis();
@@ -71,7 +71,7 @@ public class ReadValues extends AsyncTask<Void,Void,Void> {
             try {
                 logFile.createNewFile();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
+
                 e.printStackTrace();
             }
         }
@@ -82,7 +82,7 @@ public class ReadValues extends AsyncTask<Void,Void,Void> {
             buf.newLine();
             buf.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
     }
